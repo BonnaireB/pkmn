@@ -68,6 +68,11 @@ The base url of the api is http://127.0.0.1:50000 but to access the Pokemon ress
 ```
 /api/v1/resources/pokemon/page?start=<start>&limit=<limit>
 ```
-
+ RUNNING THE TESTS
+------------
+To run the test scripts, simply run the api in a terminal and in another terminal, enter : 
+```
+pytest
+```
 ## Creator
 Benjamin Bonnaire 
