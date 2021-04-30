@@ -28,7 +28,7 @@ py get-pip.py
 ```
 * For Mac OS
 ```
-python get-pip.py
+python3 get-pip.py
 ```
 Once you have pip installed, you need to install Flask and pytest to be able to run the API:
 ```
@@ -46,7 +46,7 @@ py api.py
 ```
 * Mac Os
 ```
-python api.py
+python3 api.py
 ```
  API ENDPOINTS
 ------------
