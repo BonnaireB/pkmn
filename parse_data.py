@@ -1,8 +1,11 @@
-import csv,json,requests
+import csv,json,requests,os
 
 
 def read_csv():
-    file_path = "ressources\\pokemon.csv"
+    abspath = os.path.abspath(__file__)
+    dname = os.path.dirname(abspath)
+    os.chdir(dname)
+    file_path = "ressources/pokemon.csv"
     data=[]
     with open(file_path, mode='r', encoding='utf-8-sig') as infile:
         for line in csv.DictReader(infile):
