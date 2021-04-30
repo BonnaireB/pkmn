@@ -31,7 +31,6 @@ def api_pokemon():
     results=[]
     error = False
     error_msg = "Impossible top find resource: \n"
-    print(request.args)
     if not request.args:
         return "Invalid research arguments"
     for a in request.args:
@@ -63,7 +62,6 @@ def add_pokemon():
         if b in request.json and type(pokemons[-1][b]) == type(request.json[b]):
             poke[b] = request.json[b]
         else : 
-            print(b)
             abort(400)
     check_duplicates(poke)
     pokemons.append(poke)
@@ -121,7 +119,6 @@ def get_pagination_list(url,start,limit):
         start_next = start+limit
         data['next'] = url + '?start='+str(start_next)+'&limit='+str(limit)
     data['results']= pokemons[(start-1):(start-1+ limit)]
-    print(data)
     return data
 
 
