@@ -135,7 +135,26 @@ def test_delete():
 
     assert resp_neg.status_code == 404
 
+def test_pagination():
+    extension = "/api/v1/resources/pokemon/page"
+    url = "http://127.0.0.1:5000"+extension
 
+    positive = url+"?limit=10"
+
+    resp_pos = requests.get(positive)
+    resp_body_pos = resp_pos.json()
+
+    assert resp_pos.status_code == 200
+    assert resp_body_pos['next'] == extension+"?start=11&limit=10"
+    assert resp_body_pos['previous'] == ""
+    count = resp_body_pos['count']
+    assert resp_body_pos['limit'] == 10
+    assert len(resp_body_pos['results']) == 10
+
+    negative = url+ '?start='+str(count+2)+'&limit=20'
+    resp_neg = requests.get(negative)
+
+    assert resp_neg.status_code == 404
 
 
 
